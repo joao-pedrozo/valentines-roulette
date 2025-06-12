@@ -9,7 +9,7 @@ const activities = [
   { id: 1, text: "filme", color: "#f472b6", icon: "🎬" },
   { id: 2, text: "série", color: "#f87171", icon: "📺" },
   { id: 3, text: "desenho", color: "#fb7185", icon: "👩‍🍳" },
-  { id: 4, text: "vídeo no youtube", color: "#ec4899", icon: "🌳" },
+  { id: 4, text: "vídeo no yt", color: "#ec4899", icon: "🌳" },
   { id: 5, text: "girar dnv", color: "#ef4444", icon: "🎮" },
   { id: 6, text: "girar dnv", color: "#f43f5e", icon: "🎮" },
 ]
@@ -65,7 +65,7 @@ export function ValentineRoulette() {
 
         <CardContent className="flex flex-col items-center space-y-8">
           <div className="relative">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2 z-10">
+            <div className="absolute rotate-180 top-0 left-1/2 transform -translate-x-1/2 -translate-y-2 z-10">
               <div className="w-0 h-0 border-l-4 border-r-4 border-b-8 border-l-transparent border-r-transparent border-b-red-600"></div>
             </div>
 
@@ -118,8 +118,8 @@ export function ValentineRoulette() {
                         fontWeight="bold"
                         transform={`rotate(${textAngle}, ${textX}, ${textY})`}
                       >
-                        <tspan x={textX} dy="-8">{activity.icon}</tspan>
-                        <tspan x={textX} dy="16" fontSize="10">{activity.text}</tspan>
+                        <tspan x={textX} dy="-8" fontSize="20">{activity.icon}</tspan>
+                        <tspan x={textX} dy="24" fontSize="14">{activity.text}</tspan>
                       </text>
                     </g>
                   )
