@@ -57,3 +57,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes breathing {
+  0%, 100% { background-color: #b91c1c; }
+  50% { background-color: #7a1111; }
+}
+.animate-breathing {
+  animation: breathing 1.8s ease-in-out infinite;
+}
