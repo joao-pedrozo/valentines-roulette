@@ -8,7 +8,7 @@ import { Play } from "lucide-react"
 const activities = [
   { id: 1, text: "filme", color: "#f472b6", icon: "🎬" },
   { id: 2, text: "série", color: "#f87171", icon: "📺" },
-  { id: 3, text: "desenho", color: "#fb7185", icon: "👩‍🍳" },
+  { id: 3, text: "reels", color: "#fb7185", icon: "👩‍🍳" },
   { id: 4, text: "vídeo no yt", color: "#ec4899", icon: "🌳" },
   { id: 5, text: "girar dnv", color: "#ef4444", icon: "🎮" },
   { id: 6, text: "girar dnv", color: "#f43f5e", icon: "🎮" },
