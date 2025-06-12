@@ -6,13 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Heart, Play } from "lucide-react"
 
 const activities = [
-  { id: 1, text: "Ver Filme", color: "#f472b6", icon: "🎬" },
-  { id: 2, text: "Ver Série", color: "#f87171", icon: "📺" },
-  { id: 3, text: "Cozinhar Juntos", color: "#fb7185", icon: "👩‍🍳" },
+  { id: 1, text: "ver filme (sua escolha)", color: "#f472b6", icon: "🎬" },
+  { id: 2, text: "ver filme (minha escolha)", color: "#f87171", icon: "📺" },
+  { id: 3, text: "ver vídeo no youtube (nossa escolha)", color: "#fb7185", icon: "👩‍🍳" },
   { id: 4, text: "Passear no Parque", color: "#ec4899", icon: "🌳" },
   { id: 5, text: "Jogar um Jogo", color: "#ef4444", icon: "🎮" },
   { id: 6, text: "Jantar Romântico", color: "#f43f5e", icon: "🕯️" },
 ]
+
 
 export function ValentineRoulette() {
   const [isSpinning, setIsSpinning] = useState(false)
@@ -41,8 +42,9 @@ export function ValentineRoulette() {
 
       // Calcular opção vencedora baseada no ângulo final
       // Ajustar para começar do topo (0 graus = meio da primeira seção)
-      const anguloAjustado = (360 - (anguloFinal % 360) + 30) % 360
-      const indiceVencedor = Math.floor(anguloAjustado / 60)
+      const anguloFinalReal = (rotacaoTotal % 360 + 360) % 360 // sempre positivo
+      const anguloDoPonteiro = (360 - anguloFinalReal + 30) % 360
+      const indiceVencedor = Math.floor(anguloDoPonteiro / (360 / activities.length))
       const opcaoVencedora = activities[indiceVencedor]
 
       setSelectedActivity(opcaoVencedora.text)
@@ -61,11 +63,9 @@ export function ValentineRoulette() {
       <Card className="w-full max-w-2xl bg-white/80 dark:bg-[#0f0f0f]/90 backdrop-blur-sm shadow-2xl border-pink-200 dark:border-[#1a1a1a]">
         <CardHeader className="text-center pb-4">
           <CardTitle className="text-3xl font-bold text-red-600 dark:text-red-400 flex items-center justify-center gap-2">
-            <Heart className="h-8 w-8 text-red-500" />
-            Roleta do Amor
-            <Heart className="h-8 w-8 text-red-500" />
+          💖 roleta do amor 💖
           </CardTitle>
-          <p className="text-gray-600 dark:text-[#c0c0c0] mt-2">Gire a roleta e descubram o que vão fazer juntos! 💕</p>
+          <p className="text-gray-600 dark:text-[#c0c0c0] mt-2">vamos girar a roleta e parar descobrir o que vamos fazer juntos 😈</p>
         </CardHeader>
 
         <CardContent className="flex flex-col items-center space-y-8">
