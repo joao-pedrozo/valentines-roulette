@@ -57,7 +57,7 @@ export function ValentineRoulette() {
     <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
       <Card className="w-full max-w-2xl bg-white/80 dark:bg-[#0f0f0f]/90 backdrop-blur-sm shadow-2xl border-pink-200 dark:border-[#1a1a1a]">
         <CardHeader className="text-center pb-4">
-          <CardTitle className="text-3xl font-bold text-red-600 dark:text-red-400 flex items-center justify-center gap-2">
+          <CardTitle className="text-3xl font-bold text-red-600 dark:text-red-500 flex items-center justify-center gap-2">
             💖 roleta do amor 💖
           </CardTitle>
           <p className="text-gray-600 dark:text-[#c0c0c0] mt-2">vamos girar a roleta e parar descobrir o que vamos fazer juntos 😈</p>
@@ -152,9 +152,9 @@ export function ValentineRoulette() {
             <div
               className={`text-center p-6 bg-gradient-to-r from-pink-50 to-red-50 dark:from-[#1a1a1a] dark:to-[#1c1c1c] rounded-xl border-2 border-pink-200 dark:border-[#2a2a2a] shadow-lg ${showCelebration ? "animate-bounce" : ""}`}
             >
-              <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">🎉 Resultado 🎉</h3>
+              <h3 className="text-2xl font-bold text-red-600 dark:text-red-500 mb-2">🎉 Resultado 🎉</h3>
               <p className="text-xl text-gray-700 dark:text-[#e0e0e0]">
-                Vamos ver: <span className="font-bold text-red-600 dark:text-red-400">{selectedActivity}</span>
+                Vamos ver: <span className="font-bold text-red-600 dark:text-red-500">{selectedActivity}</span>
               </p>
               <p className="text-sm text-gray-500 dark:text-[#a0a0a0] mt-2">ebaaa</p>
             </div>

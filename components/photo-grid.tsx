@@ -10,64 +10,64 @@ import { Heart } from "lucide-react"
 const placeholderPhotos = [
   {
     id: 1,
-    src: "/placeholder.svg?height=500&width=368",
-    alt: "Foto romântica 1",
+    src: "/gallery/imagem-1.png",
+    alt: "",
     width: 368,
     height: 500,
   },
   {
     id: 2,
-    src: "/placeholder.svg?height=300&width=368",
-    alt: "Foto romântica 2",
+    src: "/gallery/imagem-5.jpg",
+    alt: "",
     width: 368,
     height: 300,
   },
   {
     id: 3,
-    src: "/placeholder.svg?height=450&width=368",
-    alt: "Foto romântica 3",
+    src: "/gallery/imagem-4.png",
+    alt: "",
     width: 368,
     height: 450,
   },
   {
     id: 4,
-    src: "/placeholder.svg?height=400&width=368",
-    alt: "Foto romântica 4",
+    src: "/gallery/imagem-2.png",
+    alt: "",
     width: 368,
     height: 400,
   },
   {
     id: 5,
-    src: "/placeholder.svg?height=350&width=368",
-    alt: "Foto romântica 5",
+    src: "/gallery/imagem-6.jpg",
+    alt: "",
     width: 368,
     height: 350,
   },
   {
     id: 6,
-    src: "/placeholder.svg?height=480&width=368",
-    alt: "Foto romântica 6",
+    src: "/gallery/imagem-3.png",
+    alt: "",
     width: 368,
     height: 480,
   },
   {
     id: 7,
-    src: "/placeholder.svg?height=320&width=368",
-    alt: "Foto romântica 7",
+    src: "/gallery/imagem-7.jpg",
+    alt: "",
     width: 368,
     height: 320,
   },
   {
     id: 8,
-    src: "/placeholder.svg?height=420&width=368",
-    alt: "Foto romântica 8",
+    src: "/gallery/imagem-8.jpg",
+    alt: "",
     width: 368,
     height: 420,
   },
   {
     id: 9,
-    src: "/placeholder.svg?height=380&width=368",
-    alt: "Foto romântica 9",
+    src: "/gallery/imagem-9.jpg",
+    alt: "",
     width: 368,
     height: 380,
   },
@@ -159,9 +159,9 @@ export function PhotoGrid() {
               <p className="text-lg font-medium text-gray-900 dark:text-[#e0e0e0]">
                 {placeholderPhotos.find((p) => p.id === selectedPhoto)?.alt}
               </p>
-              <p className="text-sm text-gray-500 dark:text-[#a0a0a0]">
+              {/* <p className="text-sm text-gray-500 dark:text-[#a0a0a0]">
                 Uma memória especial para guardar no coração ❤️
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

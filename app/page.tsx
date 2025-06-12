@@ -7,10 +7,11 @@ export default function HomePage() {
       <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
         <Card className="w-full max-w-3xl bg-white/80 dark:bg-[#0f0f0f]/90 backdrop-blur-sm shadow-2xl border-pink-200 dark:border-[#1a1a1a]">
           <CardHeader className="text-center pb-4">
-            <CardTitle className="text-3xl font-bold text-red-600 dark:text-red-400 flex items-center justify-center gap-2">
+            <CardTitle className="text-3xl font-bold text-red-600 dark:text-red-500 flex items-center justify-center gap-2">
                 meu amorzinho
             </CardTitle>
           </CardHeader>
+          <br />
 
           <CardContent className="text-center space-y-6 px-4 md:px-8">
             <div className="space-y-4">
@@ -24,7 +25,7 @@ export default function HomePage() {
               </p>
 
               <p className="text-lg text-gray-600 dark:text-[#c0c0c0]">
-                dos sorrisos compartilhados aos desafios superados, cada momento contigo é um tesouro que guardo no
+                dos sorrisos compartilhados aos desafios superados, cada momento com você é um tesouro que guardo no
                 coração.
               </p>
 
@@ -35,7 +36,7 @@ export default function HomePage() {
             </div>
 
             {/* <div className="pt-4">
-              <p className="text-lg font-medium text-red-600 dark:text-red-400">Vamos criar mais memórias juntos?</p>
+              <p className="text-lg font-medium text-red-600 dark:text-red-500">Vamos criar mais memórias juntos?</p>
               <p className="text-gray-500 dark:text-[#a0a0a0]">
                 Clique em "Roleta" no menu acima para descobrirmos nossa próxima aventura!
               </p>
