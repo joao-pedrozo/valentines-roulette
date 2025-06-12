@@ -41,6 +41,14 @@ export function Navbar() {
           >
             roleta
           </Link>
+          <Link
+            href="/anel"
+            className={`text-sm font-medium transition-colors hover:text-yellow-500 dark:hover:text-yellow-300 ${
+              pathname === "/anel" ? "text-yellow-600 dark:text-yellow-300" : "text-gray-600 dark:text-[#e0e0e0]"
+            }`}
+          >
+            aliança
+          </Link>
           <ThemeToggle />
         </nav>
       </div>
