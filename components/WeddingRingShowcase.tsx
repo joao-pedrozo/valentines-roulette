@@ -24,8 +24,8 @@ function Ring() {
 
   useFrame(() => {
     if (ringRef.current) {
-      ringRef.current.rotation.y += 0.006;
-      ringRef.current.rotation.x += 0.002;
+      ringRef.current.rotation.y += 0.0045;
+      ringRef.current.rotation.x += 0.0015;
       ringRef.current.position.y = Math.sin(Date.now() * 0.001) * 0.1;
     }
   });
@@ -33,7 +33,7 @@ function Ring() {
   return (
     <group>
       <mesh ref={ringRef} castShadow receiveShadow material={new THREE.MeshPhongMaterial({ color: 0xc0c0c0, shininess: 100, specular: 0xffffff })} rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[1.5, 0.15, 32, 100]} />
+        <torusGeometry args={[1.7, 0.15, 32, 100]} />
         {diamonds}
       </mesh>
     </group>
