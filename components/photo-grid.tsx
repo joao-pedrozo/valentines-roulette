@@ -38,7 +38,7 @@ const placeholderPhotos = [
   },
   {
     id: 5,
-    src: "/gallery/imagem-6.jpg",
+    src: "/gallery/imagem-7.jpg",
     alt: "",
     width: 368,
     height: 350,
@@ -52,7 +52,7 @@ const placeholderPhotos = [
   },
   {
     id: 7,
-    src: "/gallery/imagem-7.jpg",
+    src: "/gallery/imagem-6.jpg",
     alt: "",
     width: 368,
     height: 320,
