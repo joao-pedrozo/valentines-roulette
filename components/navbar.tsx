@@ -31,7 +31,7 @@ export function Navbar() {
               pathname === "/fotos" ? "text-red-600 dark:text-red-500" : "text-gray-600 dark:text-[#e0e0e0]"
             }`}
           >
-            memórias
+            nós
           </Link>
           <Link
             href="/roleta"
