@@ -49,6 +49,14 @@ export function Navbar() {
           >
             aliança
           </Link>
+          <Link
+            href="/notas"
+            className={`text-sm font-medium transition-colors hover:text-gray-600 dark:hover:text-gray-300 ${
+              pathname === "/notas" ? "text-gray-600 dark:text-gray-300" : "text-gray-600 dark:text-[#e0e0e0]"
+            }`}
+          >
+            notas
+          </Link>
           <ThemeToggle />
         </nav>
       </div>
