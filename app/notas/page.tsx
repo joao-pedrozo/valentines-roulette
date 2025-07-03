@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabaseClient';
 import CreateNoteForm from '@/components/CreateNoteForm';
+import NoteCard from '@/components/NoteCard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default async function Notes() {
@@ -18,14 +19,9 @@ export default async function Notes() {
           {!notes || notes.length === 0 ? (
             <p className="text-muted-foreground">Nenhuma nota encontrada.</p>
           ) : (
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {notes.map((note: any) => (
-                <div key={note.id} className="p-4 border rounded-lg">
-                  <p className="text-sm text-muted-foreground">
-                    ID: {note.id} | Criado em: {new Date(note.created_at).toLocaleString()}
-                  </p>
-                  <p className="mt-2">{note.text}</p>
-                </div>
+                <NoteCard key={note.id} note={note} />
               ))}
             </div>
           )}
