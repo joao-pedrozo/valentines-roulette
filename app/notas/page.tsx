@@ -13,7 +13,7 @@ export default async function Notes() {
       
       <Card>
         <CardHeader>
-          <CardTitle>Notas Existentes</CardTitle>
+          <CardTitle>Notas</CardTitle>
         </CardHeader>
         <CardContent>
           {!notes || notes.length === 0 ? (

@@ -82,7 +82,7 @@ export default function CreateNoteForm() {
     <>
       <Card>
         <CardHeader>
-          <CardTitle>Criar Nova Nota</CardTitle>
+          <CardTitle>Criar nova nota</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex gap-2">
