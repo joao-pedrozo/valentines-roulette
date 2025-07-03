@@ -1,12 +1,11 @@
-import React from "react";
+import { createClient } from '@/lib/supabaseClient';
 
-export default function NotasPage() {
-  return (
-    <div className="flex items-center justify-center min-h-[60vh]">
-      {/* Texto vazio para ser alterado depois */}
-      <span>
-        Notas
-      </span>
-    </div>
-  );
-} 
+export default async function Notes() {
+  const supabase = await createClient();
+
+  const data = await supabase.from("notes").select();
+
+  console.log(data);
+
+  return <pre>{JSON.stringify(data, null, 2)}</pre>
+}
