@@ -16,7 +16,7 @@ export default function CreateNoteForm() {
   const [passwordError, setPasswordError] = useState('');
   const [pendingNote, setPendingNote] = useState('');
 
-  const ADMIN_PASSWORD = "valentine2024";
+  const ADMIN_PASSWORD = "valentine2025";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
