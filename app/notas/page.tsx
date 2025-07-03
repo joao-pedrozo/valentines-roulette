@@ -3,6 +3,12 @@ import CreateNoteForm from '@/components/CreateNoteForm';
 import NoteCard from '@/components/NoteCard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+interface Note {
+  id: number;
+  text: string;
+  created_at: string;
+}
+
 export default async function Notes() {
   const supabase = await createClient();
   const { data: notes } = await supabase.from("notes").select();
@@ -20,7 +26,7 @@ export default async function Notes() {
             <p className="text-muted-foreground">Nenhuma nota encontrada.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {notes.map((note: any) => (
+              {notes.map((note: Note) => (
                 <NoteCard key={note.id} note={note} />
               ))}
             </div>
