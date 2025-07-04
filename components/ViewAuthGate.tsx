@@ -62,8 +62,8 @@ export default function ViewAuthGate({ children, correctPassword }: ViewAuthGate
     await new Promise(resolve => setTimeout(resolve, 500));
 
     if (password === correctPassword) {
-      // Criar sessão de 1 minuto
-      const expiry = Date.now() + (60 * 1000); // 1 minuto
+      // Criar sessão de 30 minutos
+      const expiry = Date.now() + (30 * 60 * 1000); // 30 minutos
       localStorage.setItem('notes_view_session', expiry.toString());
       
       setIsAuthenticated(true);
