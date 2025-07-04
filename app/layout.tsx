@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="min-h-screen bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 dark:from-[#080808] dark:via-[#0a0a0a] dark:to-[#0c0c0c]">
             <Navbar />
             <PageTransition>
