@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,6 +15,19 @@ export default function CreateNoteButton() {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detectar se é mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,6 +63,20 @@ export default function CreateNoteButton() {
     setPasswordError('');
   };
 
+  const handleDialogOpen = () => {
+    setShowCreateDialog(true);
+    
+    // No mobile, dar tempo para o teclado abrir antes de focar
+    if (isMobile) {
+      setTimeout(() => {
+        const textarea = document.getElementById('note-text') as HTMLTextAreaElement;
+        if (textarea) {
+          textarea.focus();
+        }
+      }, 300);
+    }
+  };
+
   return (
     <>
       <div
@@ -61,7 +88,7 @@ export default function CreateNoteButton() {
           relative overflow-hidden cursor-pointer
           border-dashed border-2
         "
-        onClick={() => setShowCreateDialog(true)}
+        onClick={handleDialogOpen}
       >
         <div className="flex flex-col items-center space-y-2">
           <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
@@ -73,7 +100,10 @@ export default function CreateNoteButton() {
 
       {/* Create note dialog */}
       <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
-        <DialogContent>
+        <DialogContent 
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          className={isMobile ? "max-h-[80vh] overflow-y-auto" : ""}
+        >
           <DialogHeader>
             <DialogTitle>Criar Nova Nota</DialogTitle>
           </DialogHeader>
@@ -89,7 +119,7 @@ export default function CreateNoteButton() {
                 onChange={(e) => setNewNoteText(e.target.value)}
                 disabled={loading}
                 required
-                autoFocus
+                autoFocus={!isMobile}
                 className="min-h-[100px] resize-none"
               />
             </div>
