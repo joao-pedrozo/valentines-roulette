@@ -131,7 +131,7 @@ export default function AuthDialog({
           
           <form onSubmit={handleSubmit} className="space-y-4">
             {type === 'create' && (
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <label htmlFor="dialog-text" className="text-sm font-medium">
                   Texto da nota
                 </label>
@@ -148,7 +148,7 @@ export default function AuthDialog({
               </div>
             )}
 
-            <div className="space-y-2">
+            <div className="space-y-3">
               <label htmlFor="dialog-password" className="text-sm font-medium">
                 Digite a senha para confirmar
               </label>

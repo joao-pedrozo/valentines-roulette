@@ -88,6 +88,11 @@ export default function ViewAuthGate({ children, correctPassword }: ViewAuthGate
           <Eye className="w-6 h-6 text-primary" />
         </div>
         <CardTitle>Visualizar Notas</CardTitle>
+        <div className='block pt-1 pb-0'>
+        <span className='text-sm text-muted-foreground'>
+          Se não souber, pergunte para o seu hómi 🍭🤭
+        </span>
+        </div>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
