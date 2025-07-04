@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Eye, Lock } from 'lucide-react';
+import { useMobile } from '@/hooks/use-mobile';
 
 interface ViewAuthGateProps {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ export default function ViewAuthGate({ children, correctPassword }: ViewAuthGate
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [sessionExpiry, setSessionExpiry] = useState<number | null>(null);
+  const isMobile = useMobile();
 
   // Verificar sessão ao carregar
   useEffect(() => {
@@ -101,6 +103,7 @@ export default function ViewAuthGate({ children, correctPassword }: ViewAuthGate
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
               required
+              autoFocus={!isMobile}
             />
           </div>
           

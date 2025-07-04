@@ -3,10 +3,8 @@
 import { useState } from 'react';
 import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { deleteNote } from '@/app/actions';
+import AuthDialog from '@/components/ui/auth-dialog';
 
 interface Note {
   id: number;
@@ -20,40 +18,12 @@ interface NoteCardProps {
 
 export default function NoteCard({ note }: NoteCardProps) {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-  const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const createdDate = new Date(note.created_at);
   const timeAgo = getTimeAgo(createdDate);
 
-  const handleDelete = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setPasswordError('');
-
-    // Simula um pequeno delay para melhor UX
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    const result = await deleteNote(note.id, password);
-    
-    if (result.success) {
-      // Sucesso - limpa tudo e fecha o diálogo
-      setPassword('');
-      setShowDeleteDialog(false);
-      // A página será revalidada automaticamente pelo Server Action
-    } else {
-      setPasswordError(result.error || 'Erro desconhecido');
-      setPassword('');
-    }
-
-    setLoading(false);
-  };
-
-  const handleCancel = () => {
-    setShowDeleteDialog(false);
-    setPassword('');
-    setPasswordError('');
+  const handleDelete = async ({ password }: { text?: string; password: string }) => {
+    return await deleteNote(note.id, password);
   };
   
   return (
@@ -103,60 +73,14 @@ export default function NoteCard({ note }: NoteCardProps) {
         </div>
       </div>
 
-      {/* Delete confirmation dialog */}
-      <Dialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Confirmar Exclusão</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Tem certeza que deseja excluir esta nota? Esta ação não pode ser desfeita.
-            </p>
-            <form onSubmit={handleDelete} className="space-y-4">
-              <div className="space-y-2">
-                <label htmlFor="delete-password" className="text-sm font-medium">
-                  Digite a senha para confirmar
-                </label>
-                <Input
-                  id="delete-password"
-                  type="password"
-                  placeholder="Senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  disabled={loading}
-                  required
-                  autoFocus
-                />
-              </div>
-              
-              {passwordError && (
-                <Alert variant="destructive">
-                  <AlertDescription>{passwordError}</AlertDescription>
-                </Alert>
-              )}
-              
-              <div className="flex gap-2 justify-end">
-                <Button 
-                  type="button" 
-                  variant="outline" 
-                  onClick={handleCancel}
-                  disabled={loading}
-                >
-                  Cancelar
-                </Button>
-                <Button 
-                  type="submit" 
-                  variant="destructive"
-                  disabled={loading || !password.trim()}
-                >
-                  {loading ? 'Excluindo...' : 'Excluir'}
-                </Button>
-              </div>
-            </form>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <AuthDialog
+        open={showDeleteDialog}
+        onOpenChange={setShowDeleteDialog}
+        title="Confirmar Exclusão"
+        description="Tem certeza que deseja excluir esta nota? Esta ação não pode ser desfeita."
+        type="delete"
+        onSubmit={handleDelete}
+      />
     </>
   );
 }
