@@ -40,7 +40,6 @@ export default function AuthDialog({
     setIsSubmitting(true);
     setError('');
 
-    // Simula um pequeno delay para melhor UX
     await new Promise(resolve => setTimeout(resolve, 500));
 
     const result = await onSubmit({ 
@@ -49,7 +48,6 @@ export default function AuthDialog({
     });
     
     if (result.success) {
-      // Sucesso - limpa tudo e fecha o diálogo
       setText('');
       setPassword('');
       setError('');
@@ -72,8 +70,6 @@ export default function AuthDialog({
 
   const handleOpen = () => {
     onOpenChange(true);
-    
-    // No mobile, dar tempo para o teclado abrir antes de focar
     if (isMobile) {
       setTimeout(() => {
         const firstInput = document.getElementById(type === 'create' ? 'dialog-text' : 'dialog-password') as HTMLInputElement | HTMLTextAreaElement;
@@ -120,7 +116,7 @@ export default function AuthDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
         onOpenAutoFocus={(e) => e.preventDefault()}
-        className={isMobile ? "max-h-[80vh] overflow-y-auto" : ""}
+        className={`w-[95vw] max-w-lg px-4 ${isMobile ? "max-h-[80vh] overflow-y-auto" : ""}`}
       >
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
@@ -154,7 +150,7 @@ export default function AuthDialog({
 
             <div className="space-y-2">
               <label htmlFor="dialog-password" className="text-sm font-medium">
-                {type === 'create' ? 'Digite a senha para confirmar' : 'Digite a senha para confirmar'}
+                Digite a senha para confirmar
               </label>
               <Input
                 id="dialog-password"
@@ -196,4 +192,4 @@ export default function AuthDialog({
       </DialogContent>
     </Dialog>
   );
-} 
+}

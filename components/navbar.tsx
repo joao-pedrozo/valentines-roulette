@@ -11,12 +11,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-pink-200 dark:border-[#1a1a1a] bg-white/80 dark:bg-[#080808]/90 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-2">
-          <Heart className="h-6 w-6 text-red-500" fill="red" />
-          <span className="text-xl font-bold text-red-600 dark:text-red-500">nosso dia</span>
+        <div className="flex items-center gap- mr-2">
+          <Heart className="h-6 w-6 text-red-500 mr-1" fill="red" />
+          <span className="text-xl font-bold text-red-600 dark:text-red-500">us</span>
         </div>
 
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-3 md:gap-6">
           <Link
             href="/"
             className={`text-sm font-medium transition-colors hover:text-red-600 dark:hover:text-red-500 ${
